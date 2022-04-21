@@ -1,0 +1,2406 @@
+{
+	"info": {
+		"_postman_id": "0c672bf7-179c-9ccd-f33e-d88ad7cbb5aa",
+		"name": "Trainers_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "25d87155-7120-40ab-b916-e3321ef0ff49",
+			"name": "Users_test",
+			"item": [
+				{
+					"_postman_id": "a9dbbfe8-cc1b-4d11-b963-3f7325b1034f",
+					"name": "Заполняем все поля",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "hobby",
+									"value": "Стрельба из лука, Настолки",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик",
+									"type": "text"
+								},
+								{
+									"key": "name1",
+									"value": "Тестовый, ясен пень",
+									"type": "text"
+								},
+								{
+									"key": "surname1",
+									"value": "Иванов",
+									"type": "text"
+								},
+								{
+									"key": "fathername1",
+									"value": "Петров",
+									"type": "text"
+								},
+								{
+									"key": "cat",
+									"value": "Маруся",
+									"type": "text"
+								},
+								{
+									"key": "dog",
+									"value": "Ушастый",
+									"type": "text"
+								},
+								{
+									"key": "parrot",
+									"value": "Васька",
+									"type": "text"
+								},
+								{
+									"key": "cavy",
+									"value": "Кто ты?",
+									"type": "text"
+								},
+								{
+									"key": "hamster",
+									"value": "Хомяк",
+									"type": "text"
+								},
+								{
+									"key": "squirrel",
+									"value": "Белая горячка к нам пришла",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "333 33 33",
+									"type": "text"
+								},
+								{
+									"key": "adres",
+									"value": "адрес 1",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "01.01.1900",
+									"type": "text"
+								},
+								{
+									"key": "date_start",
+									"value": "11.11.2000",
+									"type": "text"
+								},
+								{
+									"key": "inn",
+									"value": "123456789012",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/fullupdateuser",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"fullupdateuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "dc89722b-e3a5-4753-91d2-eea570e85dc4",
+					"name": "Регистрация пользователя",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "467700f3-a370-425f-9b45-bc6fa3d03bfe",
+					"name": "Тест на Status code 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "fdf0c24a-916e-40d4-b9d5-7baa768413d5",
+					"name": "Тест на Status code 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code === 400)",
+									"{",
+									"    tests[\"Status code is 400\"] = true;",
+									"}",
+									"else {",
+									"    tests[\"Статус код не 400, а \" + responseCode.code] = false;",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "72117f8b-ba9a-4c0e-933c-7c39b1c73fdc",
+					"name": "Тест на message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody); // получаем объект JSON, так как responseBody строка",
+									"var messageJSON = jsonData.message; // получаем текст сообщения",
+									"",
+									"if (messageJSON === \" email qq2@gmail.com уже есть в базе\")",
+									"{",
+									"    tests[\"Сообщение правильное\"] = true;",
+									"}",
+									"else {",
+									"    tests[\"Сообщение не совпало, оно такое: \" + messageJSON] = false;",
+									"}",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "d1ffc2e3-8990-4f96-9da5-abab94cdb7a5",
+					"name": "Тест на code + message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Проверяем код ответа",
+									"if (responseCode.code === 200)",
+									"{",
+									"    tests[\"Status code is 200\"] = true;",
+									"    ",
+									"    // Проверяем сам ответ",
+									"    ",
+									"    var messageJSON = JSON.parse(responseBody).message; // получаем текст сообщения",
+									"        ",
+									"    if (messageJSON.toString() === \" email qq2@gmail.com уже есть в базе\")",
+									"    {",
+									"        tests[\"Ответ правильный: \" + messageJSON.toString()] = true;",
+									"        ",
+									"    }",
+									"    else ",
+									"    {",
+									"        tests[\"Ответ неправильный: \" + messageJSON.toString()] = false;",
+									"        ",
+									"    }",
+									"    ",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Status code is not 200, a \" + responseCode.code.toString()] = false;",
+									"    ",
+									"}",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "72e3b33b-e4c2-4632-ab1d-93687e9c52ef",
+					"name": "Тест на code + message + type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Проверяем код ответа",
+									"if (responseCode.code === 200)",
+									"{",
+									"    tests[\"Status code is 200\"] = true;",
+									"    ",
+									"    // Проверяем сам ответ",
+									"    ",
+									"    var messageJSON = JSON.parse(responseBody).message; // получаем текст сообщения",
+									"        ",
+									"    if (messageJSON.toString() === \" email qq2@gmail.com уже есть в базе\")",
+									"    {",
+									"        tests[\"Ответ правильный: \" + messageJSON.toString()] = true;",
+									"        ",
+									"    }",
+									"    else ",
+									"    {",
+									"        tests[\"Ответ неправильный: \" + messageJSON.toString()] = false;",
+									"        ",
+									"    }",
+									"    ",
+									"    // Проверяем сам тип сообщения",
+									"    ",
+									"    var type = JSON.parse(responseBody).type; // получаем тип сообщения",
+									"        ",
+									"    if (type.toString() === \"error\")",
+									"    {",
+									"        tests[\"Тип правильный: \" + type.toString()] = true;",
+									"        ",
+									"    }",
+									"    else ",
+									"    {",
+									"        tests[\"Тип неправильный: \" + type.toString()] = false;",
+									"        ",
+									"    }",
+									"    ",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Status code is not 200, a \" + responseCode.code.toString()] = false;",
+									"    ",
+									"}",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "53b02d1a-15df-4267-b70e-d0afae228267",
+					"name": "Тест на code + message + type без IF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4886f080-2390-49c2-b671-f226ea53d6c4",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Тип правильный: \" + jsonData.type] = jsonData.type === \"error\";",
+									"tests[\"Сообщение правильное: \" + jsonData.message] = jsonData.message === \" email qq2@gmail.com уже есть в базе\";",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "f82afddb-d2a6-489f-9517-885d7e6c795e",
+					"name": "Тесты на статус код, заголовки и время ответа",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"tests[\"Connection is present\"] = postman.getResponseHeader(\"Connection\");",
+									"tests[\"А такого заголовка нет!\"] = postman.getResponseHeader(\"New\");",
+									"",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "77c5a8e7-0522-462a-8c1c-1c8a846eba52",
+			"name": "Users_test New Postman",
+			"item": [
+				{
+					"_postman_id": "26ca9b7f-9620-4581-a1b7-61cada87e91d",
+					"name": "Заполняем все поля",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ba49043-78d3-41f9-a81b-612871abcd79",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Поле dog заполнено корректно: \" + jsonData.dog, function () {",
+									"    pm.expect(jsonData.dog).to.eql(\"Ушастый\");",
+									"});",
+									"",
+									"pm.test(\"Поле cat заполнено корректно: \" + jsonData.cat, function () {",
+									"    pm.expect(jsonData.cat).to.eql(\"Маруся\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "hobby",
+									"value": "Стрельба из лука, Настолки",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик",
+									"type": "text"
+								},
+								{
+									"key": "name1",
+									"value": "Тестовый, ясен пень",
+									"type": "text"
+								},
+								{
+									"key": "surname1",
+									"value": "Иванов",
+									"type": "text"
+								},
+								{
+									"key": "fathername1",
+									"value": "Петров",
+									"type": "text"
+								},
+								{
+									"key": "cat",
+									"value": "Маруся",
+									"type": "text"
+								},
+								{
+									"key": "dog",
+									"value": "Ушастый",
+									"type": "text"
+								},
+								{
+									"key": "parrot",
+									"value": "Васька",
+									"type": "text"
+								},
+								{
+									"key": "cavy",
+									"value": "Кто ты?",
+									"type": "text"
+								},
+								{
+									"key": "hamster",
+									"value": "Хомяк",
+									"type": "text"
+								},
+								{
+									"key": "squirrel",
+									"value": "Белая горячка к нам пришла",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "333 33 33",
+									"type": "text"
+								},
+								{
+									"key": "adres",
+									"value": "адрес 1",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "01.01.1900",
+									"type": "text"
+								},
+								{
+									"key": "date_start",
+									"value": "11.11.2000",
+									"type": "text"
+								},
+								{
+									"key": "inn",
+									"value": "123456789012",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/fullupdateuser",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"fullupdateuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "95413858-a164-4eac-983b-b15dd964cea2",
+					"name": "Регистрация пользователя",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "d84b88c4-aca7-4a6c-81e0-c84248941b32",
+					"name": "Тест на Status code 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40007d90-21a7-4d48-907a-65df3e751f0d",
+								"type": "text/javascript",
+								"exec": [
+									"// Old test",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// New test",
+									"pm.test(\"Status code is 200 new\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2fe5810f-43c0-42e2-b31e-5987b5263788",
+					"name": "Тест на Status code 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46d19d99-498d-4c62-a45a-74b725805881",
+								"type": "text/javascript",
+								"exec": [
+									"// New test",
+									"pm.test(\"Status code is 400 new\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "eaeca20c-cfae-4876-9223-0f70601a1648",
+					"name": "Тест на message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e03a5a64-927d-4a66-8cd4-1e79b6c33b48",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Сообщение правильное equals\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\" email qq2@gmail.com уже есть в базе\");",
+									"});",
+									"",
+									"pm.test(\"Сообщение правильное равенство\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message) === \" email qq2@gmail.com уже есть в базе\";",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "1f93b153-754c-49b7-8d4c-0d02c86a3e57",
+					"name": "Тест на message fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d11a64c-e89a-453c-af2d-971a55a18570",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Сообщение правильное equals\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\" em ail qq2@gmail.com уже есть в базе\");",
+									"});",
+									"",
+									"pm.test(\"Сообщение правильное равенство\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message) === \" em ail qq2@gmail.com уже есть в базе\";",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "37b2fb8b-4e91-4db6-9836-6f1282ccaaba",
+					"name": "Тест на code + message + type без IF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "734cbe2d-86b4-4565-941b-5dd607a7b178",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Тип правильный\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.type).to.eql(\"error\");",
+									"});",
+									"",
+									"pm.test(\"Сообщение правильное\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\" email qq2@gmail.com уже есть в базе\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "2852575e-2aa8-442e-915b-9918ea67e8f7",
+					"name": "Тест на code + message + type fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30884aae-a295-4c51-9ef0-f1b9e79a5b8e",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Тип правильный\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.type) === \"er ror\";",
+									"});",
+									"",
+									"pm.test(\"Сообщение правильное\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message) === \" em ail qq2@gmail.com уже есть в базе\";",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "c03f67ba-004d-423c-b131-6d9a07283b78",
+					"name": "Тесты на статус код, заголовки и время ответа",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "613870de-34bd-4d2a-a79d-7cb8d5edead5",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Connection is present\", function () {",
+									"    pm.response.to.have.header(\"Connection\");",
+									"});",
+									"",
+									"pm.test(\"А такого заголовка нет!\", function () {",
+									"    pm.response.to.have.header(\"New\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "fdaef086-fd68-4486-b599-6bd0d1740600",
+					"name": "randomInt + guid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "9947e17a-bfb7-490b-94b3-3bdc8159fa7e",
+					"name": "Тест на успешное создание",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34ba7952-c259-46a9-b22a-490e2e9120d7",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Он все же создан, у него есть поле пол\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.gender).to.eql(\"\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "qq5586@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "qq586",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "7ab8d5b7-539c-4593-9176-9ddd7272cd1d",
+			"name": "Sugg_test",
+			"item": [
+				{
+					"_postman_id": "306d6b67-06d4-4628-a818-4d6c546b9a0d",
+					"name": "JSON в ответе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f1f81792-d742-4c52-849a-81e47cc4e9b5",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "61bc112e-44eb-4ee8-b66e-15bea367b982",
+					"name": "XML в ответе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14b9f850-daee-4f59-a8ca-a1b79df7d2db",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonObject = xml2Json(responseBody);",
+									"console.log(jsonObject);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "af5837db-faab-4d6f-b81a-64924d646cc9",
+					"name": "Тесты на XML базовые",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили ответ как JSON",
+									"var jsonObject = xml2Json(responseBody);",
+									"",
+									"// Достали первое имя",
+									"tests[\"Первое имя: \"+ jsonObject.SuggestResponse.suggestions[0].value] = jsonObject.SuggestResponse.suggestions[0].value === \"Анна\";",
+									"",
+									"// Достаем пол",
+									"tests[\"Пол первой подсказки: \"+ jsonObject.SuggestResponse.suggestions[0].data.gender] = jsonObject.SuggestResponse.suggestions[0].data.gender === \"FEMALE\";",
+									"",
+									"// Достали первое имя, вариант 2",
+									"tests[\"Первое значение Анна\"] = jsonObject['SuggestResponse']['suggestions']['0'].value === \"Анна\";",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "efd7b44a-ee97-43b6-8396-b0ddfed9e4a6",
+					"name": "Тесты на XML: все женщины",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили ответ как JSON",
+									"var jsonObject = xml2Json(responseBody);",
+									"",
+									"// для i от 0 до 9 включительно",
+									"for (i = 0; i < 10; i++) {",
+									"  tests[\"женщина \"+ i] = jsonObject.SuggestResponse.suggestions[i].data.gender === \"FEMALE\"",
+									"}",
+									"",
+									"// для i от 0 до 9 включительно",
+									"for (i = 0; i < 10; i++) {",
+									"  tests[\"женщина в другом формате \"+ i] = jsonObject['SuggestResponse']['suggestions']['0']['data'].gender === \"FEMALE\";",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "1cd7e591-348e-452b-8d09-5e10cd606f34",
+					"name": "Тесты на JSON базовые",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Достали первое имя",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Первое имя: \"+ jsonData.suggestions[0].value] = jsonData.suggestions[0].value === \"Анна\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "cca5a2d0-53ec-4ebb-8d33-5ae2f9b809a9",
+					"name": "Тесты на JSON: все женщины",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили JSON",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// для i от 0 до 9 включительно",
+									"for (i = 0; i < 10; i++) {",
+									"  tests[\"женщина \"+ i] = jsonData.suggestions[i].data.gender === \"FEMALE\"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "4d6c335b-1b35-4ad8-a538-72061d0dcb07",
+			"name": "Sugg_test New Postman",
+			"item": [
+				{
+					"_postman_id": "5b331d03-fec9-4a09-b2e7-1efa161129f2",
+					"name": "JSON в ответе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d369abb4-9c9a-4f87-9ab7-a5f3775aa74b",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "3342bb25-b355-4474-8b9b-1cce0da09ab8",
+					"name": "XML в ответе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3034e18c-4bb3-4786-bac6-b4a3fd44ae3b",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonObject = xml2Json(responseBody);",
+									"console.log(jsonObject);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "00232bb6-14e3-4d8b-bc31-be8c821f8599",
+					"name": "Тесты на XML базовые",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6df9f9e5-a24c-4764-85cf-60d573b28d58",
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили ответ как JSON",
+									"var jsonData = xml2Json(responseBody);",
+									"",
+									"// Достаем имя",
+									"pm.test(\"Первое имя: \" + jsonData.SuggestResponse.suggestions[0].value, function () {",
+									"    pm.expect(jsonData.SuggestResponse.suggestions[0].value).to.eql(\"Анна\");",
+									"});",
+									"",
+									"// Достаем пол",
+									"pm.test(\"Пол первой подсказки: \" + jsonData.SuggestResponse.suggestions[0].data.gender, function () {",
+									"    pm.expect(jsonData.SuggestResponse.suggestions[0].data.gender).to.eql(\"FEMALE\");",
+									"});",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "f52490e7-3735-4b68-989e-6cbca509129e",
+					"name": "Тесты на XML: все женщины",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55e2165a-8183-4d2f-a0f6-0ee707b7f40f",
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили ответ как JSON",
+									"var jsonData = xml2Json(responseBody);",
+									"",
+									"// для i от 0 до 9 включительно",
+									"for (i = 0; i < 10; i++) {",
+									"  pm.test(\"Пол \" + i + \" подсказки: \" + jsonData.SuggestResponse.suggestions[i].data.gender, function () {",
+									"    pm.expect(jsonData.SuggestResponse.suggestions[i].data.gender).to.eql(\"FEMALE\");",
+									"});",
+									"  ",
+									"}",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "128210b7-edb5-484d-88d6-daac3af5dc74",
+					"name": "Тесты на JSON базовые",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "69f7ae41-0ae4-4aa0-abcd-2f95a3d9e166",
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили JSON",
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);",
+									"",
+									"// Достаем имя",
+									"pm.test(\"Первое имя: \" + jsonData.suggestions[0].value, function () {",
+									"    pm.expect(jsonData.suggestions[0].value).to.eql(\"Анна\");",
+									"});",
+									"",
+									"// Достаем пол",
+									"pm.test(\"Пол первой подсказки: \" + jsonData.suggestions[0].data.gender, function () {",
+									"    pm.expect(jsonData.suggestions[0].data.gender).to.eql(\"FEMALE\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "7d7612e9-c4d0-4724-a606-2e8727041396",
+					"name": "Тесты на JSON: все женщины",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e99e2fd4-ed94-4dfe-b58a-facd9f32a423",
+								"type": "text/javascript",
+								"exec": [
+									"// Распарсили JSON",
+									"var jsonData = pm.response.json();",
+									"",
+									"// для i от 0 до 9 включительно",
+									"for (i = 0; i < 10; i++) {",
+									"  pm.test(\"Пол \" + i + \" подсказки: \" + jsonData.suggestions[i].data.gender, function () {",
+									"    pm.expect(jsonData.suggestions[i].data.gender).to.eql(\"FEMALE\");",
+									"});",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 4616dc225150d046ede2bd60accaa29a0e45ed51"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "1f036494-5765-4f48-bb8b-0ee502e2a23e",
+			"name": "Users create from file",
+			"item": [
+				{
+					"_postman_id": "5ffb65f6-8bf9-498a-8077-8b29a733846d",
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58ff8793-83b7-4a43-be39-8b2c530e7b78",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Он все же создан, у него есть поле пол\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.gender).to.eql(\"\");",
+									"});",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "4625d0bf-0e9a-4e6e-8c65-748fe28c13cf",
+			"name": "Random register",
+			"item": [
+				{
+					"_postman_id": "9b9682e0-367e-4bfd-b9dd-1d916a4f88f2",
+					"name": "randomInt + guid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9342db63-cc32-4a1c-bf46-362213ee12ff",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Он все же создан, у него есть поле пол\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.gender).to.eql(\"\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$guid}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"_postman_id": "e195b128-5912-4883-854b-0248faecbfac",
+			"name": "Reuse variables",
+			"item": [
+				{
+					"_postman_id": "6c5465ca-4244-408d-bbd1-5d45f4e086a6",
+					"name": "1. Регистрация пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6388b449-dceb-4689-8354-fe80a2f1922c",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"email\", jsonData.email);",
+									"postman.setEnvironmentVariable(\"name\", jsonData.name);",
+									"",
+									"console.log(jsonData);",
+									"",
+									"pm.test(\"Он все же создан, у него есть поле пол\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.gender).to.eql(\"\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$randomInt}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"_postman_id": "bafbe50d-8328-4e3d-bd84-82704ca73c76",
+					"name": "2. Обновляем пользователю dog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3f21eb1f-2a76-41fc-9de1-2dfcc1ee7987",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}"
+								},
+								{
+									"key": "field",
+									"value": "dog",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "Новое значение",
+									"sessionValue": "Новое значение",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/useronefield",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"useronefield"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
