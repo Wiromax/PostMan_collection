@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "85433076-8c0b-48ef-b1b2-794cf9336ca4",
+		"name": "Habra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"try{\r",
+							"    //сохраняем UserID из Json ответа в переменную окружения\r",
+							"    pm.environment.set (\"userId\", pm.response.json().args.userId);\r",
+							"} catch(e) {\r",
+							"    //выводить исключение в консоль\r",
+							"    console.log(e);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?userId={{newUserId}}",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{newUserId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Check query userId to response and userId to veriable\r",
+							"pm.test(\"UserId from envariable equal to userId from response\", function(){\r",
+							"    pm.expect(parseInt(pm.environment.get(\"userId\"))).to.equal(\r",
+							"        pm.response.json().data.userId\r",
+							"    );\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userId\": {{userId}}, \"username\": \"Bob\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Get profile from response\r",
+							"var profile = pm.response.json().data.profile;\r",
+							"\r",
+							"//Diagram of the model\r",
+							"var scheme = {\r",
+							"    // указываем тип объекта\r",
+							"    \"type\": \"object\",\r",
+							"    // указываем обязательные свойства\r",
+							"    \"required\": [\"userId\", \"username\"],\r",
+							"    // описываем свойства\r",
+							"    \"properties\": {\r",
+							"        \"userId\": {\"type\": \"integer\"},\r",
+							"        \"username\": {\"type\": \"string\"},\r",
+							"        \"age\": {\"type\": \"integer\"},\r",
+							"        // описываем массив\r",
+							"        \"scores\": {\r",
+							"            \"type\": \"array\",\r",
+							"            // тип элементов\r",
+							"            \"items\": {\"type\": \"integer\"}\r",
+							"        },\r",
+							"        // описываем вложенный объект\r",
+							"        \"rating\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"properties\": {\r",
+							"                \"min\": {\"type\": \"integer\"},\r",
+							"                \"max\": {\"type\": \"integer\"}\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function(){\r",
+							"    var isValidScheme = tv4.validate(profile, scheme, true, true);\r",
+							"    pm.expect(isValidScheme).to.be.true;\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"profile\" : {\r\n        \"userId\": {{userId}},\r\n        \"userName\": \"Bob\",\r\n        \"scores\": [1, 2, 3, 4, 5],\r\n        \"age\": 21,\r\n        \"rating\": {\"min\": 20, \"max\": 100}\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"//Check status and format to response",
+					"pm.test(\"Status is ok, response is json\", function(){",
+					"    pm.response.to.be.ok;",
+					"    pm.response.to.be.json;",
+					"});"
+				]
+			}
+		}
+	]
+}
